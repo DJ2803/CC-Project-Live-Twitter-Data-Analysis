@@ -12,10 +12,10 @@ import tweepy
 from json import dump, dumps
 import plotly.graph_objects as go
 
-tweepyClient = tweepy.Client(bearer_token='AAAAAAAAAAAAAAAAAAAAAPnwjgEAAAAALwnVp2b9wXAvw9ZBVE5gMRio8cs%3D9MZyE9bPsgDEyvF7RTIHFhhjdzeCgd8yRiEoSw47ERuI7fechr')
+tweepyClient = tweepy.Client(bearer_token='twitter developer account id')
 session = boto3.Session(
-                     aws_access_key_id='AKIA37SXF5FYZLNPC655',
-                     aws_secret_access_key='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')
+                     aws_access_key_id='',
+                     aws_secret_access_key='')
 
 s3 = session.resource('s3')
 twitterIDs = ['66395780', '43430484', '26007726', '23689478', '88803528', '33645850']
@@ -88,8 +88,8 @@ def lambda_handler(event, context):
     lst = os.listdir("/tmp/mydir")
     
     client = boto3.client('s3',
-                        aws_access_key_id = 'AKIA37SXF5FYZLNPC655',
-                        aws_secret_access_key = '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')
+                        aws_access_key_id = '',
+                        aws_secret_access_key = '')
 
     os.chdir('/tmp/mydir')
 
@@ -100,8 +100,8 @@ def lambda_handler(event, context):
          )
          
     clientS3 = boto3.client('s3',
-                        aws_access_key_id = 'AKIA37SXF5FYZLNPC655',
-                        aws_secret_access_key = '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')
+                        aws_access_key_id = '',
+                        aws_secret_access_key = '')
                         
 
     clientS3.copy_object(Key='CAROutput/CarCompanyActivity.html', Bucket='ccfinalproject6828', #folder
