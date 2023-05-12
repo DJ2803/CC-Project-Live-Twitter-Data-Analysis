@@ -33,9 +33,9 @@ def lambda_handler(event, context):
     
     x = dumps(dataList, default=str, indent=4)
     
-    #object = s3.Object('ccfinalproject6828', 'CARData.json')
+    #object = s3.Object('ccfinalproject01', 'CARData.json')
     object = s3.Object(
-        bucket_name='ccfinalproject6828', 
+        bucket_name='ccfinalproject01', 
         key='CARData/CARData.json' #folder
     )
     
@@ -95,7 +95,7 @@ def lambda_handler(event, context):
 
     client.upload_file(
         Filename="CarCompanyActivity.html",
-        Bucket="ccfinalproject6828",
+        Bucket="ccfinalproject01",
         Key="CAROutput/CarCompanyActivity.html", #folder
          )
          
@@ -104,15 +104,15 @@ def lambda_handler(event, context):
                         aws_secret_access_key = '')
                         
 
-    clientS3.copy_object(Key='CAROutput/CarCompanyActivity.html', Bucket='ccfinalproject6828', #folder
-                          CopySource={"Bucket": 'ccfinalproject6828', "Key": 'CAROutput/CarCompanyActivity.html'}, #folder
+    clientS3.copy_object(Key='CAROutput/CarCompanyActivity.html', Bucket='ccfinalproject01', #folder
+                          CopySource={"Bucket": 'ccfinalproject01', "Key": 'CAROutput/CarCompanyActivity.html'}, #folder
                           ContentType='text/html',
                           ContentDisposition='inline', 
                           ACL='public-read', # makes the object publicly readable
                           MetadataDirective="REPLACE")
                           
     client.put_object_acl(
-        ACL="public-read", Bucket="ccfinalproject6828", Key="CAROutput/CarCompanyActivity.html" #folder
+        ACL="public-read", Bucket="ccfinalproject01", Key="CAROutput/CarCompanyActivity.html" #folder
     )
     
     return {
